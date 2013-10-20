@@ -2,6 +2,7 @@ $(document).ready(function() {
   //Create a variable to store a random number
   var Answer = Math.floor((Math.random()*100)+1);
   var Guess = getGuess();
+  checkGuess (Guess, Answer);
 
   //Create a function that when called will grab the number from the user input
   //After creating the function and grabbing the users input check to see if it is a number. 
@@ -19,4 +20,15 @@ $(document).ready(function() {
 
 function getGuess () {
 	return prompt("Your Guess?");
+}
+
+function checkGuess (number, target) {
+	if (number == target) {
+		alert ("You Got It!!");
+	}else if (number < target) {
+		alert ("Too Low!");
+	} else {
+		alert ("Too High!");
+	}
+
 }
