@@ -7,6 +7,9 @@ $(document).ready(function() {
   $("button").click(function(){
       alert("button was clicked");
     });
+   $("#guessForm").submit(function(){
+      alert("button was clicked");
+  });
 
 
   //Create a function that when called will grab the number from the user input
@@ -24,27 +27,27 @@ $(document).ready(function() {
 });
 
 function getGuess () {
-	//return prompt("Your Guess?");
+  //return prompt("Your Guess?");
   return $("#userguess");
 }
 
 function checkGuess (number, target) {
-	if (number == target) {
-		return "You Got It!!";
-	}else if (number < target) {
-		return "Too Low!";
-	} else {
-		return "Too High!";
+  if (number == target) {
+    return "You Got It!!";
+  }else if (number < target) {
+    return "Too Low!";
+  } else {
+    return "Too High!";
 }
 }
 //function validateGuess (userGuess) {
-	//var isNan = isNaN(parseInt(userGuess));
+  //var isNan = isNaN(parseInt(userGuess));
 //if (isNan)
-	//{ alert (isNan)
-	  //return prompt ("You must use a Number");
-	//}else
+  //{ alert (isNan)
+    //return prompt ("You must use a Number");
+  //}else
   //{
-		//return userGuess;
+    //return userGuess;
   //}
 //}
 
