@@ -48,3 +48,10 @@ function checkGuess (number, target) {
   //}
 //}
 
+function hotOrCold(g , p, a){
+   if(Math.abs(g - a) < Math.abs(p - a )){
+     return "warmer"
+   }else{
+     return "colder"
+   }
+}
