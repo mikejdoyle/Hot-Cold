@@ -3,13 +3,18 @@
 <head>
     <title>Hot or Cold</title>
   <meta charset="UTF-8">
-  <script src="game.js" type="text/javascript"></script>
+    <script language="JavaScript" type="text/javascript" src="./jquery-2.0.3.min.js"></script>
+    <script src="game.js" type="text/javascript"></script>
 </head>
 <body>
 <img src = "http://i1.sndcdn.com/artworks-000053303795-8ybi3c-original.jpg?3eddc42" alt ="HOT or COLD?" height="50">
-<div class = "Box1">
+    <form>
+        <input id="userguess" type="text" name="userguess">
+        <input id="submit" type="submit" value="Submit">
+    </form>
     <p class="rules">
         "I have choosen a number between 1 and 100. Would you like to try and guess it? Enter your guess and hit return. I will let you know if each guess is HOTTER or COLDER than the guess before. Good Luck!"
     </p>
+
 </body>
 </html>
