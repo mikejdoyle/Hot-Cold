@@ -2,27 +2,36 @@
 <html>
 <head>
     <title>Hot or Cold</title>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name = "viewport" content="width=device-width, initial-scale =1.0">
+    <link href = "css/bootstrap.min.css" rel = "stylesheet">
+    <link href = "css/styles.css" rel = "stylesheet">
     <script language="JavaScript" type="text/javascript" src="./jquery-2.0.3.min.js"></script>
     <script src="game.js" type="text/javascript"></script>
+    <script src="js/bootstrap.js"></script>
 </head>
 <body>
-<img src = "http://i1.sndcdn.com/artworks-000053303795-8ybi3c-original.jpg?3eddc42" alt ="HOT or COLD?" height="75">
-    <form id="guessForm">
-        <input type="text" value="Enter a number"/>
-        <input type="submit" value="Check It!"/>
-    </form>
-<button>Play Again!</button>
-    <p class="rules">
-        "I have choosen a number between 1 and 100. Would you like to try and guess it? Enter your guess and hit return. I will let you know if each guess is HOTTER or COLDER than the guess before. Good Luck!"
-    </p>
-<div>
-    <div class="Guessed">
+<div class = "container">
+    <div class= "jumbotron">
+        <img src = "http://i1.sndcdn.com/artworks-000053303795-8ybi3c-original.jpg?3eddc42" alt ="HOT or COLD?" height="75">
+         <p class="lead" class="text-center">
+            "I have choosen a number between  <strong>1</strong> and <strong>100</strong>. Would you like to try and guess it? Enter your guess and hit return. I will let you know if each guess is HOTTER or COLDER than the guess before. Good Luck!"
+         </p>
+         <form id="guessForm">
+            <input type="text" placeholder="Enter a number"/>
+            <input type="submit" value="Check It!"/>
+        </form>
+        <button>Play Again!</button>
     </div>
-    <div class="Guessbox">
-      <h2>Your Current Guess</h2>
-      <p></p>
+    <div>
+         <div class="Guessed">
+            </div>
+            <div class="Guessbox">
+            <h2>Your Current Guess</h2>
+            <p></p>
+        </div>
     </div>
+
 </div>
 <ul>
 </ul>

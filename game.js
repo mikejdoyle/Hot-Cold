@@ -1,14 +1,17 @@
 $(document).ready(function() {
   //Create a variable to store a random number
-  var Answer = Math.floor((Math.random()*100)+1);
-  var Guess = getGuess();
-   //var vGuess = validateGuess (Guess);
-  //checkGuess (Guess, Answer);
+  var Answer = Math.floor((Math.random()*100)+1),
+      Guess;
+
   $("button").click(function(){
-      alert("button was clicked");
-    });
-   $("#guessForm").submit(function(){
-      alert("button was clicked");
+    //Reset game
+  });
+
+  $("#guessForm").submit(function(){
+    alert(getGuess());
+    //var vGuess = validateGuess (Guess);
+    //checkGuess (Guess, Answer);
+    return false;
   });
 
 
@@ -23,12 +26,11 @@ $(document).ready(function() {
 
   //Add a event listener to the submit button that calls the function to get users number
 
-
 });
 
 function getGuess () {
   //return prompt("Your Guess?");
-  return $("#userguess");
+  return $("#userguess").val();
 }
 
 function checkGuess (number, target) {
@@ -38,18 +40,20 @@ function checkGuess (number, target) {
     return "Too Low!";
   } else {
     return "Too High!";
+  }
 }
+function validateGuess (userGuess) {
+  var isNan = isNaN(parseInt(userGuess));
+  if (isNan)
+  {
+    //Set error message in here
+    return false;
+  }else
+  {
+    //Ensure between 1-100
+    return true;
+  }
 }
-//function validateGuess (userGuess) {
-  //var isNan = isNaN(parseInt(userGuess));
-//if (isNan)
-  //{ alert (isNan)
-    //return prompt ("You must use a Number");
-  //}else
-  //{
-    //return userGuess;
-  //}
-//}
 
 function hotOrCold(g , p, a){
    if(Math.abs(g - a) < Math.abs(p - a )){
