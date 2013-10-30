@@ -5,33 +5,47 @@ var previousGuess;
 function isNormalInteger(str) {
     return (/^[1-9]\d*$/).test(str);
 }
-function validGuess(guess) {
+function isvalidGuess(guess) {
     return isNormalInteger(guess) && +guess <= 100 && +guess >= 1;
 }
 function checkGuess (event){
   event.preventDefault();
-  alert ("check guess called!");
   //Grab input from text input
   var guess=$("#guess").val();
   alert (answer);
- if(validGuess(guess)){
+ if(isvalidGuess(guess)){
      guess = parseInt(guess, 10);
+   if (previousGuess){
+       hot_cold(guess, previousGuess, answer)
+   }
+   previousGuess=guess;
    if (answer === guess){
-       alert ("You got it");
     //logic for true
+   $("#message-box").append("<p id=right-msg>YOU GOT IT!!!</p>")
+   $("#guess").val("").focus();
  } else if (guess > answer){
-  alert ("High guess");
-  //feedback for low guess
+  //feedback for high guess
+$("#message-box").append("<p id=high-msg>Your guess of "+guess+" is too HIGH!</p>")
+   $("#guess").val("").focus();
 } else {
-   alert ("Low guess");
-//feedback for high guess
+//feedback for low guess
+  $("#message-box").append("<p id=low-msg>Your guess of "+guess+" is too LOW!</p>")
+   $("#guess").val("").focus();
        }
+  //clear user input text box
+  $("#guess").val("").focus();
   //clear error msgs
+  $("#error").remove();
+}else {
+  $("#message-box").append("<p id=error> You must choose a NUMBER between 1 and 100</p>")
+   $("#guess").val("").focus();
 }
-
-}
+}//end checkGuess
+  $("#guess-form").on("click", "#reset",function(event){location.reload();
+});
   $("#guess-form").submit(checkGuess);
 });
+
 
 
 
@@ -55,23 +69,13 @@ function getGuess () {
 
 
 
-function validateGuess (userGuess) {
-  var isNan = isNaN(parseInt(userGuess));
-  if (isNan)
-  {
-    //Set error message in here
-    return false;
-  }else
-  {
-    //Ensure between 1-100
-    return true;
-  }
-}
 
-function hotOrCold(g , p, a){
+function hot_cold(g , p, a){
    if(Math.abs(g - a) < Math.abs(p - a )){
-     return "warmer"
+     $('body').css('background-color', 'red');
+     $("#message-box").append("<p id=warm-msg>Warmer!</p>")
    }else{
-     return "colder"
+     $('body').css('background-color', '#BBFFFF');
+     $("#message-box").append("<p id=warm-msg>Colder!</p>")
    }
 }

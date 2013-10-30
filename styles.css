@@ -1,6 +1,6 @@
 @import url(css/bootstrap.min.css);
 
-body {background: #BBFFFF;}
+body {background: grey;}
 
 .lead{
   background-color: white;
@@ -10,4 +10,23 @@ body {background: #BBFFFF;}
 
 .img-responsive{
    padding-bottom: 20px;
+}
+
+.on{
+  height:auto;opacity:1;
+  -webkit-transition:all,
+    0.2s,ease;-moz-transition:all,0.2s,
+    ease;-o-transition:all,0.2s,ease;
+  transition:all,0.2s,ease}
+
+.off{
+  height:0;
+  width:0;margin:0;
+  padding:0;opacity:0;
+  overflow:hidden;-webkit-transition:all,
+  0.2s,ease;-moz-transition:all,0.2s,ease;
+  -o-transition:all,0.2s,ease;
+  transition:all,0.2s,ease}
+.error{
+background: #FF0000
 }
