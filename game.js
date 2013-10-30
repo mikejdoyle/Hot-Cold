@@ -1,18 +1,38 @@
-$(document).ready(function() {
-  //Create a variable to store a random number
-  var Answer = Math.floor((Math.random()*100)+1),
-      Guess;
 
-  $("button").click(function(){
-    //Reset game
-  });
+$(document).ready(function(){
+var answer = Math.floor((Math.random()*100)+1);
+var previousGuess;
+function isNormalInteger(str) {
+    return (/^[1-9]\d*$/).test(str);
+}
+function validGuess(guess) {
+    return isNormalInteger(guess) && +guess <= 100 && +guess >= 1;
+}
+function checkGuess (event){
+  event.preventDefault();
+  alert ("check guess called!");
+  //Grab input from text input
+  var guess=$("#guess").val();
+  alert (answer);
+ if(validGuess(guess)){
+     guess = parseInt(guess, 10);
+   if (answer === guess){
+       alert ("You got it");
+    //logic for true
+ } else if (guess > answer){
+  alert ("High guess");
+  //feedback for low guess
+} else {
+   alert ("Low guess");
+//feedback for high guess
+       }
+  //clear error msgs
+}
 
-  $("#guessForm").submit(function(){
-    alert(getGuess());
-    //var vGuess = validateGuess (Guess);
-    //checkGuess (Guess, Answer);
-    return false;
-  });
+}
+  $("#guess-form").submit(checkGuess);
+});
+
 
 
   //Create a function that when called will grab the number from the user input
@@ -26,22 +46,15 @@ $(document).ready(function() {
 
   //Add a event listener to the submit button that calls the function to get users number
 
-});
+
 
 function getGuess () {
   //return prompt("Your Guess?");
   return $("#userguess").val();
 }
 
-function checkGuess (number, target) {
-  if (number == target) {
-    return "You Got It!!";
-  }else if (number < target) {
-    return "Too Low!";
-  } else {
-    return "Too High!";
-  }
-}
+
+
 function validateGuess (userGuess) {
   var isNan = isNaN(parseInt(userGuess));
   if (isNan)
