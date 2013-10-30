@@ -1,2 +1,12 @@
 @import url(css/bootstrap.min.css);
 body {background: #BBFFFF;}
+
+.lead{
+  background-color: white;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.img-responsive{
+   padding-bottom: 20px;
+}
